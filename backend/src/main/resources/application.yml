@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:8085}
+
+spring:
+  application:
+    name: eventflow-backend
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+aws:
+  region: ${AWS_REGION:us-east-1}
+  accessKeyId: ${AWS_ACCESS_KEY_ID:}
+  secretAccessKey: ${AWS_SECRET_ACCESS_KEY:}
+  sessionToken: ${AWS_SESSION_TOKEN:}
+  s3:
+    bucket: ${AWS_S3_BUCKET:eventflow-bucket-403799034212}
+  dynamodb:
+    filesTable: ${AWS_DYNAMODB_FILES_TABLE:EventFlowFiles}
+    eventsTable: ${AWS_DYNAMODB_EVENTS_TABLE:EventFlowEvents}
+    rulesTable: ${AWS_DYNAMODB_RULES_TABLE:EventFlowRules}
+    experimentsTable: ${AWS_DYNAMODB_EXPERIMENTS_TABLE:EventFlowExperiments}
+
+logging:
+  level:
+    root: INFO
+    com.eventflow: DEBUG
